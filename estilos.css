@@ -1,0 +1,607 @@
+/* =========================================================
+   INCUBA ELECTRO TRACE
+   ESTILOS PRINCIPALES
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f5f3;
+    color: #26332c;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.app-header {
+    background: #1f5c3a;
+    color: white;
+    padding: 25px 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.app-header > div {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.app-header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.app-header p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* =========================================================
+   PANTALLAS
+========================================================= */
+
+.pantalla {
+    display: none;
+}
+
+.pantalla.activa {
+    display: block;
+}
+
+/* =========================================================
+   BIENVENIDA
+========================================================= */
+
+.bienvenida {
+    background: white;
+    border-radius: 16px;
+    padding: 35px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.bienvenida h2 {
+    color: #1f5c3a;
+    margin-bottom: 12px;
+    font-size: 26px;
+}
+
+.bienvenida p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    color: #526158;
+}
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.tarjeta {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+}
+
+.tarjeta h2 {
+    color: #1f5c3a;
+    margin-bottom: 20px;
+}
+
+.tarjeta h3 {
+    color: #2d6848;
+    margin: 15px 0;
+}
+
+/* =========================================================
+   TITULOS DE PANTALLA
+========================================================= */
+
+.titulo-pantalla {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.titulo-pantalla h2 {
+    color: #1f5c3a;
+}
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+}
+
+.btn-principal {
+    background: #1f5c3a;
+    color: white;
+    padding: 13px 22px;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-secundario {
+    background: #e7f1eb;
+    color: #1f5c3a;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn-volver {
+    background: #e4ebe7;
+    color: #294437;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn-excel,
+.btn-lista-excel {
+    background: #287a4b;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn-eliminar,
+.btn-lista-eliminar {
+    background: #b83232;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn-abrir {
+    background: #1f5c3a;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* =========================================================
+   FORMULARIOS
+========================================================= */
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #34483c;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #c8d2cc;
+    border-radius: 8px;
+    background: #fbfcfb;
+    color: #26332c;
+    font-size: 15px;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: #1f5c3a;
+    box-shadow: 0 0 0 3px rgba(31, 92, 58, 0.12);
+}
+
+.campo textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #dce3de;
+    margin: 25px 0;
+}
+
+/* =========================================================
+   LISTA DE INCUBACIONES
+========================================================= */
+
+.lote {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #dce5df;
+    border-radius: 12px;
+    background: #fafcfb;
+}
+
+.lote h3 {
+    color: #1f5c3a;
+    margin-bottom: 5px;
+}
+
+.lote p {
+    color: #607067;
+}
+
+.acciones-lote-lista {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.vacio {
+    color: #718078;
+    text-align: center;
+    padding: 25px;
+}
+
+/* =========================================================
+   ACCIONES DEL LOTE
+========================================================= */
+
+.acciones-lote {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/* =========================================================
+   RESUMEN
+========================================================= */
+
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.dato-resumen {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid #1f5c3a;
+}
+
+.dato-resumen strong {
+    display: block;
+    color: #607067;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.dato-resumen span {
+    color: #26332c;
+    font-weight: bold;
+}
+
+/* =========================================================
+   LINEA DE TIEMPO
+========================================================= */
+
+.linea-tiempo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.etapa {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    border-top: 4px solid #c8d2cc;
+}
+
+.etapa.activa {
+    border-top-color: #1f5c3a;
+}
+
+.numero-etapa {
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #e7f1eb;
+    color: #1f5c3a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.etapa h3 {
+    color: #1f5c3a;
+    margin-bottom: 5px;
+}
+
+.etapa p {
+    color: #68766e;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* =========================================================
+   FORMULARIO DE ETAPA
+========================================================= */
+
+.formulario-etapa {
+    border-left: 5px solid #1f5c3a;
+}
+
+.formulario-etapa h2 {
+    margin-bottom: 25px;
+}
+
+.formulario-etapa h3 {
+    color: #1f5c3a;
+}
+
+/* =========================================================
+   REFERENCIA DE PESO
+========================================================= */
+
+.referencia-peso {
+    background: #eef6f0;
+    border: 1px solid #cce0d2;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 15px 0 20px;
+    color: #315540;
+}
+
+.referencia-peso strong {
+    color: #1f5c3a;
+}
+
+.resultado-peso {
+    background: #f6f8f6;
+    border-radius: 10px;
+    border-left: 4px solid #6a9479;
+    padding: 18px;
+    margin: 15px 0 20px;
+    color: #35463c;
+}
+
+/* =========================================================
+   ACCIONES DEL FORMULARIO
+========================================================= */
+
+.acciones {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* =========================================================
+   RESULTADOS
+========================================================= */
+
+.resultado-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.resultado {
+    background: #f8faf8;
+    border: 1px solid #dce5df;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.resultado strong {
+    color: #526158;
+}
+
+.resultado span {
+    color: #1f5c3a;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* =========================================================
+   FIRMA
+========================================================= */
+
+.firma-incuba {
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 40px;
+    background: #1f5c3a;
+    color: white;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.firma-incuba .marca {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.firma-incuba .lema {
+    margin-top: 8px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .resumen {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .linea-tiempo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+    .app-header h1 {
+        font-size: 22px;
+    }
+
+    .bienvenida {
+        padding: 25px 18px;
+    }
+
+    .titulo-pantalla {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .resumen {
+        grid-template-columns: 1fr;
+    }
+
+    .linea-tiempo {
+        grid-template-columns: 1fr;
+    }
+
+    .lote {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .acciones-lote-lista {
+        width: 100%;
+    }
+
+    .acciones-lote-lista button {
+        flex: 1;
+    }
+
+    .acciones-lote {
+        justify-content: stretch;
+    }
+
+    .acciones-lote button {
+        flex: 1;
+    }
+
+    .resultado-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resultado {
+        flex-direction: column;
+    }
+
+    .resultado span {
+        text-align: left;
+    }
+
+}
+
+/* =========================================================
+   LOGO INCUBA ELECTRO
+========================================================= */
+
+.header-contenido {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo-incuba {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    background: white;
+    border-radius: 14px;
+    padding: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-texto h1 {
+    margin: 0;
+}
+
+.header-texto p {
+    margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+
+    .header-contenido {
+        gap: 12px;
+    }
+
+    .logo-incuba {
+        width: 58px;
+        height: 58px;
+    }
+
+    .header-texto h1 {
+        font-size: 19px;
+    }
+
+    .header-texto p {
+        font-size: 13px;
+    }
+
+}

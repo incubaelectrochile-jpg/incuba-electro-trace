@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INCUBA ELECTRO TRACE</title>
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <!-- Biblioteca para exportar Excel -->
+
+    <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+</head>
+
+
+<body>
+
+
+   <header class="app-header">
+
+    <div class="header-contenido">
+
+        <img
+            src="logo-incuba-electro.png"
+            alt="INCUBA ELECTRO"
+            class="logo-incuba"
+        >
+
+        <div class="header-texto">
+
+            <h1>
+                INCUBA ELECTRO TRACE
+            </h1>
+
+            <p>
+                Trazabilidad inteligente de incubaciones
+            </p>
+
+        </div>
+
+    </div>
+
+</header>
+
+    <main class="container">
+
+
+        <!-- INICIO -->
+
+        <section id="inicio" class="pantalla activa">
+
+
+            <div class="bienvenida">
+
+                <h2>
+                    Del huevo al pollito 🐣
+                </h2>
+
+
+                <p>
+
+                    Registra cada etapa de tu incubación,
+                    conoce dónde se producen las pérdidas
+                    y analiza el resultado final.
+
+                </p>
+
+
+                <button
+                    class="btn-principal"
+                    onclick="mostrarPantalla('nueva')">
+
+                    ➕ Nueva incubación
+
+                </button>
+
+            </div>
+
+
+            <div class="tarjeta">
+
+                <h2>
+                    📋 Mis incubaciones
+                </h2>
+
+
+                <div id="listaLotes">
+
+                    <p class="vacio">
+
+                        Todavía no tienes incubaciones registradas.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- NUEVA INCUBACIÓN -->
+
+        <section id="nueva" class="pantalla">
+
+
+            <div class="titulo-pantalla">
+
+
+                <button
+                    class="btn-volver"
+                    onclick="mostrarPantalla('inicio')">
+
+                    ← Volver
+
+                </button>
+
+
+                <h2>
+                    🥚 Nueva incubación
+                </h2>
+
+
+            </div>
+
+
+            <div class="tarjeta">
+
+
+                <div class="campo">
+
+                    <label>
+                        Nombre del lote
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="nombreLote"
+                        placeholder="Ej: Kollonko">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        Fecha de carga
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="fechaLote">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        Especie
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="especieLote"
+                        placeholder="Ej: Gallina">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        Incubadora
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="incubadoraLote"
+                        placeholder="Ej: Incubadora 01">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        Cantidad de huevos ingresados
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="huevosIngresados"
+                        min="1"
+                        placeholder="Ej: 121">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>
+                        Observaciones iniciales (opcional)
+                    </label>
+
+
+                    <textarea
+                        id="observacionInicial"
+                        placeholder="Puedes escribir cualquier detalle que quieras recordar..."></textarea>
+
+                </div>
+
+
+                <button
+                    class="btn-principal"
+                    onclick="crearLote()">
+
+                    🥚 Crear incubación
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- DETALLE DE INCUBACIÓN -->
+
+        <section id="detalle" class="pantalla">
+
+
+            <div class="titulo-pantalla">
+
+
+                <button
+                    class="btn-volver"
+                    onclick="mostrarPantalla('inicio')">
+
+                    ← Mis incubaciones
+
+                </button>
+
+
+                <h2 id="tituloLote">
+
+                    Incubación
+
+                </h2>
+
+
+            </div>
+
+
+            <!-- BOTONES EXCEL Y ELIMINAR -->
+
+            <div class="acciones-lote">
+
+
+                <button
+                    class="btn-excel"
+                    onclick="exportarLoteActual()">
+
+                    📊 Exportar a Excel
+
+                </button>
+
+
+                <button
+                    class="btn-eliminar"
+                    onclick="eliminarLoteActual()">
+
+                    🗑️ Eliminar incubación
+
+                </button>
+
+
+            </div>
+
+
+            <!-- RESUMEN -->
+
+            <div
+                id="resumenLote"
+                class="resumen">
+
+            </div>
+
+
+            <!-- ETAPAS -->
+
+            <div class="linea-tiempo">
+
+
+                <div class="etapa activa">
+
+
+                    <div class="numero-etapa">
+
+                        1
+
+                    </div>
+
+
+                    <h3>
+
+                        🥚 Día 1
+
+                    </h3>
+
+
+                    <p>
+
+                        Selección inicial
+
+                    </p>
+
+
+                    <button
+                        class="btn-secundario"
+                        onclick="mostrarFormularioEtapa(1)">
+
+                        Registrar
+
+                    </button>
+
+
+                </div>
+
+
+                <div class="etapa">
+
+
+                    <div class="numero-etapa">
+
+                        2
+
+                    </div>
+
+
+                    <h3>
+
+                        🔦 Día 7–9
+
+                    </h3>
+
+
+                    <p>
+
+                        Primera ovoscopia
+
+                    </p>
+
+
+                    <button
+                        class="btn-secundario"
+                        onclick="mostrarFormularioEtapa(2)">
+
+                        Registrar
+
+                    </button>
+
+
+                </div>
+
+
+                <div class="etapa">
+
+
+                    <div class="numero-etapa">
+
+                        3
+
+                    </div>
+
+
+                    <h3>
+
+                        🔦 Día 18
+
+                    </h3>
+
+
+                    <p>
+
+                        Segunda ovoscopia
+
+                    </p>
+
+
+                    <button
+                        class="btn-secundario"
+                        onclick="mostrarFormularioEtapa(3)">
+
+                        Registrar
+
+                    </button>
+
+
+                </div>
+
+
+                <div class="etapa">
+
+
+                    <div class="numero-etapa">
+
+                        4
+
+                    </div>
+
+
+                    <h3>
+
+                        🐣 Nacimiento
+
+                    </h3>
+
+
+                    <p>
+
+                        Resultado final
+
+                    </p>
+
+
+                    <button
+                        class="btn-secundario"
+                        onclick="mostrarFormularioEtapa(4)">
+
+                        Registrar
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- FORMULARIO DE ETAPA -->
+
+            <div
+                id="formularioEtapa"
+                class="tarjeta formulario-etapa"
+                style="display:none;">
+
+            </div>
+
+
+            <!-- ESTADÍSTICAS -->
+
+            <div
+                id="estadisticas"
+                class="tarjeta">
+
+
+                <h2>
+
+                    📊 Resultado de la incubación
+
+                </h2>
+
+
+                <div id="resultados">
+
+
+                    <p>
+
+                        Registra las etapas para ver las estadísticas.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT PRINCIPAL -->
+<!-- FIRMA E IDENTIDAD INCUBA ELECTRO -->
+
+<div class="firma-incuba">
+
+```
+<div class="marca">
+    BY FELIPE SÁNCHEZ Q.
+</div>
+
+<div>
+    INCUBAELECTRO · AVES TENO
+</div>
+
+<div>
+    📧 avesteno@gmail.com
+</div>
+
+<div>
+    📧 incubaelectrochile@gmail.com
+</div>
+
+<div>
+    📱 +56 9 6434 7706
+</div>
+
+<div class="lema">
+    JUNTOS CRECEMOS
+</div>
+```
+
+</div>
+
+
+    <script src="app.js"></script>
+
+<!-- CONFIGURACIÓN PWA -->
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#1f5c3a">
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", function() {
+
+        navigator.serviceWorker.register("sw.js")
+
+            .then(function() {
+
+                console.log(
+                    "INCUBA ELECTRO TRACE: PWA activa"
+                );
+
+            })
+
+            .catch(function(error) {
+
+                console.error(
+                    "Error al activar PWA:",
+                    error
+                );
+
+            });
+
+    });
+
+}
+
+</script>
+
+
+
+</body>
+
+</html>
